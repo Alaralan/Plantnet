@@ -1,8 +1,9 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 def file_directory_path(instance, filename):
-    return f"my_files/{instance.id}/{filename}"
+    return f"my_files/{datetime.date.today().strftime('%Y%m')}/{filename}"
 
 class Plant(models.Model):
 	name=models.CharField(max_length=200, null=False, blank=False)
