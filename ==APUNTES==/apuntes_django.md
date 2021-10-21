@@ -7,7 +7,14 @@
 ██████╔╝╚█████╔╝██║  ██║██║ ╚████║╚██████╔╝╚██████╔╝
 ╚═════╝  ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝ 
 ```
-_Guía básica de instalación/configuración de DJANGO_
+# _Guía básica de instalación/configuración de DJANGO_
+
+-----------------------------------------------------------
+Configurar en Visual Studio Code
+- Tema (**Monokai**)
+- Atajo de teclado
+	- (^q)	Des/Comentar 
+	- (F1)	Des/Plegar
 
 -----------------------------------------------------------
 # INSTALACIÓN
@@ -272,6 +279,11 @@ Directorio que contiene los ficheros `html`.
 -----------------------------------------------------------
 # Trabajar con la BD [models.py](https://docs.djangoproject.com/es/3.2/intro/tutorial02/#creating-models)
 
+- [🌐 Lista desplegable](https://docs.djangoproject.com/en/3.2/ref/models/fields/)
+- [🌐 Fields (Tipos)](https://docs.djangoproject.com/en/3.1/ref/models/fields/#module-django.db.models.fields.related)
+	- [🌐 imagefield](https://www.geeksforgeeks.org/imagefield-django-models/)
+	- [🌐 foreignKey: on_delete](https://docs.djangoproject.com/en/3.1/ref/models/fields/#arguments)
+
 ## Configuración de modelo
 Para manipular la BD crearemos modelos en el fichero `models.py`.
 
@@ -362,7 +374,7 @@ exit()
 ```
 -----------------------------------------------------------
 # Eliminar/Renovar migrations
-🌐 [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
+- 🌐 [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
 
 Podemos hacerlo de dos formas.
 ## 1. Borrando la BD

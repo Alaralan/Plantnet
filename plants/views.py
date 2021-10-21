@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Plant
+from .models import *
 
 # Create your views here.
 def home(request):
@@ -7,5 +7,5 @@ def home(request):
 	return render(request, "home.html", context={"variable": variable})
 
 def plants(request):
-	_objetos=Plant.objects.all()
+	_objetos=Plants.objects.all()
 	return render(request, "plants.html", context={"plants":_objetos})
