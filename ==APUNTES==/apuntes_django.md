@@ -10,12 +10,42 @@
 # _Guía básica de instalación/configuración de DJANGO_
 
 -----------------------------------------------------------
-Configurar en Visual Studio Code
-- Tema (**Monokai**)
-- Atajo de teclado
-	- (^q)	Des/Comentar 
-	- (F1)	Des/Plegar
+Configurar en Visual Studio Code, opcional.
 
+### Extensiones
+- [Django](https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django)
+- [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles)
+- [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [Monokai Pro](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode)
+
+### `^_P` Preferencias
+- **Métodos abreviados de teclado**
+	- `^q`	Des/Comentar 
+	- `F1`	Des/Plegar
+- **Abrir atajos de teclado (JSON)**
+	- _Pasar de **pestañas** en modo normal._
+		- Añadir al final.
+		```JSON
+		[
+	    // ...
+    	{
+        	"key": "ctrl+tab",
+        	"command": "workbench.action.nextEditor"
+    	},
+    	{
+        	"key": "ctrl+shift+tab",
+        	"command": "workbench.action.previousEditor"
+    	}
+		]
+		```
+
+#### **Leyenda** 
+_Esto lo uso para mis apuntes, no tiene nada que ver con el código._
+- `^` Control
+- `_` Shift
+- `~` Alt
 -----------------------------------------------------------
 # INSTALACIÓN
 
@@ -410,16 +440,51 @@ Si hemos borrado la BD tenemos que crear la [contraseña de administrador](#ADMI
 # [static](https://docs.djangoproject.com/es/3.2/intro/tutorial06/#customize-your-app-s-look-and-feel)
 
 ## CSS
-Se crea la carpeta `static` dentro del proyecto y luego la hoja de estilos dentro.
-
-`styles.css` Una hoja de estilos normal.
-
+Se crea la carpeta `static` dentro del proyecto y luego la hoja de estilos dentro de `static/css/style.css`.
 Para incluir el CSS en el template añadimos esta línea en la etiqueta `<head>`.
-```html
+```django
+	<!-- Con esta línea incluimos los ficheros estáticos -->
 	{% load static %}
-	<link rel="stylesheet" href="{% static 'style.css' %}" />
+
+	<!-- Des esta forma accedemos a ellos -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 ```
 
+
+-----------------------------------------------------------
+# TAG
+Dentro de nuestros ficheros html podremos introducir **tag** de django.
+Algo similar a `<?php ... ?>`
+
+## `{% comment %} ... {% endcomment %}`
+Comentario
+
+## `{% load static  %}`
+Para cargar los ficheros estáticos (css, img, j, ...)
+
+## `{% static 'css/style.css' %}`
+Devuelve la ruta del fichero indicado, previemante se debe cargar con el tag anterior (`load`)
+```html
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+```
+
+## `{% extends 'plantillaBase.html' %}`
+Hereda la plantilla. Se introduce antes de `block` a la hora de definir el contenido.
+
+## `{% block blockName %}{% endblock blockName %}`
+Según donde los usemos, definen o cargan el contenido del bloque.
+- `plantillaBase.html`, indica donde irá el contenido.
+- `Templates`, que se mostrará.
+
+## `{% url 'nameUrls' %}`
+Ruta de la URL, obtine el atributo `name` del fichero `urls.py`
+
+## `{% for ... %}`
+```django
+{% for line in listado %}
+	{{line.value}}
+{% endfor %}
+```
 
 -----------------------------------------------------------
 # ❌ ERRORES
