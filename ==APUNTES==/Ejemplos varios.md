@@ -1,5 +1,5 @@
 # Ejemplos de código
-## Modelos - `admin.py`
+## MODELOS - `models.py`
 ### Lista desplegable
 ```python
 tierra=models.CharField(
