@@ -29,21 +29,5 @@ class Plant(models.Model):
 	image=models.ImageField(upload_to=file_directory_path, null=True, blank=True)
 	riego=models.IntegerField(null=True, blank=True)
 	tierra=models.ForeignKey('Tierra',on_delete=models.SET_NULL, null=True, blank=True)
-	'''
-	## Ejemplo de lista desplegable
-	---
-	tierra=models.CharField(
-		max_length=3,
-		choices=[
-			('TIE',"Tierra"),
-			('ARE',"Arenosa"),
-			('ARC',"Arcillosa"),
-			('LIM',"Limosa"),
-			('TUB',"Turba"),
-			('TIZ',"Tiza")
-		],
-		default='TIE'
-	)
-	'''
 	def __str__(self):
 		return self.name
