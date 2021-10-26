@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
-{% block elAbout %}
-	<h1>Información sobre la web.</h1>
-{% endblock elAbout%}
+{% block title %}{{title_}}{% endblock title %}
+
+{% block content %}
+	<h1>{{title_}}</h1>
+	<p>Muestra cierta información sobre la web</p>
+{% endblock content %}

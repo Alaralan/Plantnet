@@ -486,6 +486,9 @@ Ruta de la URL, obtine el atributo `name` del fichero `urls.py`
 {% endfor %}
 ```
 
+## `{% if user.is_authenticated %}`
+Mostrar diferente contenido si un usuario ha iniciado sesión.
+
 -----------------------------------------------------------
 # ❌ ERRORES
 
@@ -512,6 +515,7 @@ Depende el caso te conviene hacer alguna de estas opciones:
 - [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
 - [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
 - [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
+- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
 
 ## Cheatsheets
 - [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)

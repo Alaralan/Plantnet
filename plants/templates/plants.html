@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
-{% block elContent %}
-	<h1>Catálogo.</h1>
+{% block title %}{{title_}}{% endblock title %}
+
+{% block content %}
+	<h1>{{title_}}</h1>
 	{% for plant in plants %}
 	<h3>{{plant.name}}</h3>
 	<img src="{{plant.image}}" /body>
 	{% endfor %}
-{% endblock elContent %}
+{% endblock content %}

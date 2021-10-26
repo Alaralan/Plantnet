@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+  <title>{% block title %}{% endblock title %}🌱Plantnet</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie-edge">
   
@@ -15,17 +16,27 @@
 </head>
 <body>
   <header>
-  <h1>Plantnet</h1>
+  <h1>🌱 Plantnet</h1>
+
+  <!-- MENÚ -->
   <a href="{% url 'home' %}">Home</a>
   <a href="{% url 'plants' %}">Catálogo</a>
   <a href="{% url 'about' %}">About</a>
+  {% if user.is_authenticated %}
+    <a href="{% url 'profile' %}">Profile</a>
+    <a href="{% url 'logout' %}">Logout</a>
+  {% else %}
+    <a href="{% url 'login' %}">Login</a>
+  {% endif %}
   </header>
 
-<!-- HOME -->
-{% block elHome %}{% endblock elHome %}
-{% block elContent %}{% endblock elContent %}
-{% block elAbout %}{% endblock elAbout %}
+<!-- SESIÓN -->
+{% if user.is_authenticated %}
+<h2>{{user.username}}</h2>
+{% endif %}
 
+<!-- CONTENEDORES -->
+{% block content %}{% endblock content %}
 
 </body>
 <footer>
