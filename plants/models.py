@@ -25,7 +25,6 @@ class Plant(models.Model):
 	name=models.CharField(max_length=200, null=False, blank=False)
 	nameComun=models.CharField(max_length=200,null=True, blank=True)
 	description=models.TextField(null=True, blank=True)
-	# image=models.ImageField(upload_to="IMAGES/PLANTS/%Y%m/, null=True, blank=True)
 	image=models.ImageField(upload_to=file_directory_path, null=True, blank=True)
 	riego=models.IntegerField(null=True, blank=True)
 	tierra=models.ForeignKey('Tierra',on_delete=models.SET_NULL, null=True, blank=True)
