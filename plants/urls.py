@@ -1,9 +1,10 @@
-from django.urls import path
+from django.conf.urls import url
+# from django.urls import path
 from . import views
 
 urlpatterns=[
-	path('',									views.home,						name="home"),
-	path('plants/',						views.plants,					name="plants"),
-	path('about/',						views.about,					name="about"),
-	path('accounts/profile/',	views.userDashboard,	name="profile"),
+	url(r'^$',									views.home,						name="home"),
+	url(r'^plants/',						views.plants,					name="plants"),
+	url(r'^about/',							views.about,					name="about"),
+	url(r'^accounts/profile/',	views.userDashboard,	name="profile"),
 ]

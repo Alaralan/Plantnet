@@ -1,10 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{title_}}{% endblock title %}
 
 {% block content %}
 	<h1>{{title_}}</h1>
 	{% for plant in plants %}
-	<h3>{{plant.name}}</h3>
-	<img src="{{plant.image}}" /body>
+	<hr/>
+	<img name="pImage" src="/{{plant.image}}" /body>
+	<h2 name="pName">{{plant.name}}</h2>
+	<h2 name="pNameComun">{{plant.nameComun}}</h2>
+	<ul>
+		<li>Días de riego: <b>{{plant.riego}}</b>
+		<li>Tipo de tierra: <b>{{plant.tierra}}</b>
+	</ul>
+	<h3 name="pDescription">Descripción</h3>
+	<p>{{plant.description}}
 	{% endfor %}
 {% endblock content %}
