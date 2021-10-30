@@ -4,9 +4,15 @@
 {% block content %}
 {% if user.is_authenticated %}
 <h1>Hola, {{request.user.username}}</h1>
-<p>
-	Dashboard del usuario logado
-</p>
+<h2>Dashboard del usuario.</h2>
+
+<form method="POST">
+{{form_.as_p}}
+{% csrf_token %}
+<input type="submit" value="Modificar"/>
+</form>
+
+
 {% else %}
 
 

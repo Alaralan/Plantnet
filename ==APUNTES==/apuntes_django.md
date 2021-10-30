@@ -489,6 +489,16 @@ Ruta de la URL, obtine el atributo `name` del fichero `urls.py`
 ## `{% if user.is_authenticated %}`
 Mostrar diferente contenido si un usuario ha iniciado sesión.
 
+## `{% csrf_token %}`
+Dentro de un formulario, parsea los valores.
+
+Luego los recepcionamos en la `view.py`.
+```python
+if form.is_valid():
+	print(_form.cleaned_data)
+	print(_form.cleaned_data.get("campo"))
+```
+
 -----------------------------------------------------------
 # ❌ ERRORES
 
