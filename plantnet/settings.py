@@ -29,8 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='Correo@gmail.com'
-EMAIL_HOST_PASSWORD='Contraseña'
+EMAIL_HOST_USER='graveyarkeeper@gmail.com'
+EMAIL_HOST_PASSWORD='x79TpZytHhjpMA5'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 

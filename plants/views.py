@@ -3,6 +3,8 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
+from django.core.mail import send_mail
+from django.conf import settings
 #==========================================================
 # WEBS
 def home(request):
@@ -26,6 +28,19 @@ def contact(request):
 			motivo=form_data.get('motivo'),
 			msg=form_data.get('mensaje'))
 		context.update({'ok_':"Mensaje enviado"})
+
+		msg="{} ({})\n\n{}".format(
+			form_data.get('name'),
+			form_data.get('email'),
+			form_data.get('mensaje'),
+		)
+		send_mail(
+			"Plantnet 🌿 "+form_data.get('motivo'),					# Asunto
+			msg,																						# Cuerpo del mensaje
+			settings.EMAIL_HOST_USER,												# From
+			[settings.EMAIL_HOST_USER],											# To
+			fail_silently=False
+		)
 		return render(request, "contact.html", context=context)
 	return render(request, "contact.html", context=context)
 def userDashboard(request):
