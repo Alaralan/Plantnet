@@ -500,6 +500,11 @@ if form.is_valid():
 ```
 
 -----------------------------------------------------------
+# 
+-----------------------------------------------------------
+#  Configurar EMAIL
+
+-----------------------------------------------------------
 # ❌ ERRORES
 
 ## Modelos
@@ -519,13 +524,196 @@ Depende el caso te conviene hacer alguna de estas opciones:
 
 -----------------------------------------------------------
 # URLGRAFÍA
-
 - [Primeros pasos DJANGO](https://medium.com/@devsar)
 - [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
 - [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
 - [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
 - [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
 - [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
+- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
+- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
+
+## Cheatsheets
+- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
+
+-----------------------------------------------------------
+#  Configurar EMAIL
+
+-----------------------------------------------------------
+# ❌ ERRORES
+
+## Modelos
+❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
+
+`python manage.py makemigrations plants`
+```python
+You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+```
+### ✔ Solución
+Depende el caso te conviene hacer alguna de estas opciones: 
+- Provide a default value in your model.
+- Provide a default during the migration process.
+- Enable null values for that field.
+
+
+-----------------------------------------------------------
+# URLGRAFÍA
+- [Primeros pasos DJANGO](https://medium.com/@devsar)
+- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
+- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
+- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
+- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
+- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
+- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
+- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
+
+## Cheatsheets
+- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
+
+-----------------------------------------------------------
+#  Configurar EMAIL
+
+-----------------------------------------------------------
+# ❌ ERRORES
+
+## Modelos
+❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
+
+`python manage.py makemigrations plants`
+```python
+You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+```
+### ✔ Solución
+Depende el caso te conviene hacer alguna de estas opciones: 
+- Provide a default value in your model.
+- Provide a default during the migration process.
+- Enable null values for that field.
+
+
+-----------------------------------------------------------
+# URLGRAFÍA
+- [Primeros pasos DJANGO](https://medium.com/@devsar)
+- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
+- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
+- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
+- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
+- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
+- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
+- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
+
+## Cheatsheets
+- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
+
+-----------------------------------------------------------
+#  Configurar EMAIL
+
+-----------------------------------------------------------
+# ❌ ERRORES
+
+## Modelos
+❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
+
+`python manage.py makemigrations plants`
+```python
+You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+```
+### ✔ Solución
+Depende el caso te conviene hacer alguna de estas opciones: 
+- Provide a default value in your model.
+- Provide a default during the migration process.
+- Enable null values for that field.
+
+
+-----------------------------------------------------------
+# URLGRAFÍA
+- [Primeros pasos DJANGO](https://medium.com/@devsar)
+- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
+- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
+- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
+- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
+- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
+- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
+- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
+
+## Cheatsheets
+- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
+
+-----------------------------------------------------------
+# ✉️ Configurar envío EMAIL
+## GMAIL
+`settings.py`
+```python
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='Correo@gmail.com'
+EMAIL_HOST_PASSWORD='Contraseña'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+```
+
+-----------------------------------------------------------
+# ❌ ERRORES
+
+## Modelos
+❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
+
+`python manage.py makemigrations plants`
+```python
+You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+```
+### ✔ Solución
+Depende el caso te conviene hacer alguna de estas opciones: 
+- Provide a default value in your model.
+- Provide a default during the migration process.
+- Enable null values for that field.
+
+
+-----------------------------------------------------------
+# URLGRAFÍA
+- [Primeros pasos DJANGO](https://medium.com/@devsar)
+- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
+- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
+- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
+- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
+- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
+- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
+- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
+
+## Cheatsheets
+- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
+- [Cheatsheet for Django Models by Jack Linke](https://jacklinke.com/cheatsheet-for-django-models)ema Configurar EMAIL
+
+-----------------------------------------------------------
+# ❌ ERRORES
+
+## Modelos
+❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
+
+`python manage.py makemigrations plants`
+```python
+You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+```
+### ✔ Solución
+Depende el caso te conviene hacer alguna de estas opciones: 
+- Provide a default value in your model.
+- Provide a default during the migration process.
+- Enable null values for that field.
+
+
+-----------------------------------------------------------
+# URLGRAFÍA
+- [Primeros pasos DJANGO](https://medium.com/@devsar)
+- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
+- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
+- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
+- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
+- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
+- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
+- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
 
 ## Cheatsheets
 - [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
