@@ -27,20 +27,22 @@ def contact(request):
 			email=form_data.get('email'),
 			motivo=form_data.get('motivo'),
 			msg=form_data.get('mensaje'))
-		context.update({'ok_':"Mensaje enviado"})
 
 		msg="{} ({})\n\n{}".format(
 			form_data.get('name'),
 			form_data.get('email'),
 			form_data.get('mensaje'),
 		)
+		''' ## Envío de correo deshabilitado, para las pruebas.
 		send_mail(
 			"Plantnet 🌿 "+form_data.get('motivo'),					# Asunto
 			msg,																						# Cuerpo del mensaje
-			settings.EMAIL_HOST_USER,												# From
+			settings.EMAIL_HOST_USER,												#
 			[settings.EMAIL_HOST_USER],											# To
 			fail_silently=False
 		)
+		# '''
+		context.update({'send_':"✔ Mensaje enviado"})
 		return render(request, "contact.html", context=context)
 	return render(request, "contact.html", context=context)
 def userDashboard(request):

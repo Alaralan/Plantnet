@@ -1,11 +1,11 @@
 ###### Alan Aragón Lancharro
 ```shell
-██████╗      ██╗ █████╗ ███╗   ██╗ ██████╗  ██████╗ 
+██████╗      ██╗ █████╗ ███╗   ██╗ ██████╗  ██████╗
 ██╔══██╗     ██║██╔══██╗████╗  ██║██╔════╝ ██╔═══██╗
 ██║  ██║     ██║███████║██╔██╗ ██║██║  ███╗██║   ██║
 ██║  ██║██   ██║██╔══██║██║╚██╗██║██║   ██║██║   ██║
 ██████╔╝╚█████╔╝██║  ██║██║ ╚████║╚██████╔╝╚██████╔╝
-╚═════╝  ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝ 
+╚═════╝  ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝
 ```
 # _Guía básica de instalación/configuración de DJANGO_
 
@@ -22,7 +22,7 @@ Configurar en Visual Studio Code, opcional.
 
 ### `^_P` Preferencias
 - **Métodos abreviados de teclado**
-	- `^q`	Des/Comentar 
+	- `^q`	Des/Comentar
 	- `F1`	Des/Plegar
 - **Abrir atajos de teclado (JSON)**
 	- _Pasar de **pestañas** en modo normal._
@@ -41,7 +41,7 @@ Configurar en Visual Studio Code, opcional.
 		]
 		```
 
-#### **Leyenda** 
+#### **Leyenda**
 _Esto lo uso para mis apuntes, no tiene nada que ver con el código._
 - `^` Control
 - `_` Shift
@@ -98,7 +98,7 @@ pip install django
 ### Linux y Windows
 Ver paquetes instalados y su versión
 ```shell
-pip freeze			
+pip freeze
 ```
 
 
@@ -212,7 +212,7 @@ from django.urls import path
 from . import views
 
 urlpatterns=[
-	path('', views.home, name="home"),	
+	path('', views.home, name="home"),
 ]
 ```
 
@@ -228,7 +228,7 @@ Fichero de configuración, que ya hemos modificado más arriba.
 ```python
 # Muestra los errores, por defecto (True).
 # * Recomendado poner en False para producción.
-DEBUG=True 
+DEBUG=True
 ```
 
 #### ⚠️ Agregar el proyecto
@@ -295,7 +295,7 @@ Directorio que contiene los ficheros `html`.
 </head>
 	<body>
 		<h1>{{variable}}!</h1>
-		<!-- Bucle 
+		<!-- Bucle
 		{% for blog in blogs %}
 		<h3>{{blog.title}}</h3>
 		<a href="learn/{{blog.id}}">Leer más</a>
@@ -450,7 +450,96 @@ Para incluir el CSS en el template añadimos esta línea en la etiqueta `<head>`
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 ```
 
+## TAILWIND
+- [Docs](https://pypi.org/project/django-tailwind/#description)
+- [Guía de instalación](https://django-tailwind.readthedocs.io/en/latest/installation.html)
 
+Gesión de CSS mediante clases.
+### 1. Instalar
+```shell
+pip install django-tailwind
+```
+### 2. `settings.py`
+Añadir a `INSTALLED_APPS`.
+```python
+INSTALLED_APPS=[
+	# ...
+	'tailwind',
+]
+```
+### 3. Crear Tailwind CSS compatible Django.
+```shell
+python manage.py tailwind init
+# Nombre de la aplicación (theme, por defecto).
+theme
+# Modo. Se puede cambiar después.
+1 - just in time (jit)
+```
+### 4. `settings.py` Añadir aplicación.
+Agregamos `theme` a `INSTALLED_APPS`.
+```python
+INSTALLED_APPS = [
+	# ...
+	'tailwind',
+	'theme'
+]
+```
+### 5. `settings.py` Añadir el nombre de la app en tailwind.
+Registramos el tema en la configuración de django.
+```python
+TAILWIND_APP_NAME='theme'
+```
+### 6. `settings.py` IP
+```python
+INTERNAL_IPS=[
+	"127.0.0.1",
+]
+```
+### 7. Instalar en nuestro proyecto.
+```shell
+python manage.py tailwind install
+```
+
+#### ❌ Posible error
+```bash
+CommandError: 
+It looks like node.js and/or npm is not installed or cannot be found.
+```
+#### ✔ Solución
+Debe estar instalado `npm` y definido en el `PATH` o bien en el fichero `settings.py`.
+- [Guía instalación NPM](https://parzibyte.me/blog/2018/09/27/instalar-npm-node-js-windows/)
+
+```python
+# Linux
+NPM_BIN_PATH='/usr/local/bin/npm'
+
+# Windows
+NPM_BIN_PATH=r"C:\Program Files\nodejs\npm.cmd"
+```
+### 8. `base.html` Template.
+Tailwind instala una plantilla en la ruta `tailwind_app_name/templates/base.html`.
+### 9. Si no usas `base.html` que incluye tailwind en tus ficheros.
+Añade `{% tailwind_css %}` a tu fichero `base.html`.
+```django
+{% load tailwind_tags %}
+...
+<head>
+   ...
+   {% tailwind_css %}
+   ...
+</head>
+```
+### 10. Ejecutar
+Una vez seguimos todos los pasos ejecutamos con.
+```shell
+python manage.py tailwind start
+```
+#### ❌ Posible error
+```bash
+"npm" no reconocido como comando interno o externo.
+```
+#### ✔ Solución
+- [Variable de entorno](https://bertofern.wordpress.com/2019/01/08/solucion-node-js-npm-no-reconocido-como-comando-interno-o-externo/)
 -----------------------------------------------------------
 # TAG
 Dentro de nuestros ficheros html podremos introducir **tag** de django.
@@ -500,159 +589,101 @@ if form.is_valid():
 ```
 
 -----------------------------------------------------------
-# 
------------------------------------------------------------
-#  Configurar EMAIL
-
------------------------------------------------------------
-# ❌ ERRORES
-
-## Modelos
-❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
-
-`python manage.py makemigrations plants`
-```python
-You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
-Please select a fix:
-```
-### ✔ Solución
-Depende el caso te conviene hacer alguna de estas opciones: 
-- Provide a default value in your model.
-- Provide a default during the migration process.
-- Enable null values for that field.
-
-
------------------------------------------------------------
-# URLGRAFÍA
-- [Primeros pasos DJANGO](https://medium.com/@devsar)
-- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
-- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
-- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
-- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
-- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
-- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
-- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
-
-## Cheatsheets
-- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
-
------------------------------------------------------------
-#  Configurar EMAIL
-
------------------------------------------------------------
-# ❌ ERRORES
-
-## Modelos
-❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
-
-`python manage.py makemigrations plants`
-```python
-You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
-Please select a fix:
-```
-### ✔ Solución
-Depende el caso te conviene hacer alguna de estas opciones: 
-- Provide a default value in your model.
-- Provide a default during the migration process.
-- Enable null values for that field.
-
-
------------------------------------------------------------
-# URLGRAFÍA
-- [Primeros pasos DJANGO](https://medium.com/@devsar)
-- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
-- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
-- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
-- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
-- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
-- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
-- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
-
-## Cheatsheets
-- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
-
------------------------------------------------------------
-#  Configurar EMAIL
-
------------------------------------------------------------
-# ❌ ERRORES
-
-## Modelos
-❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
-
-`python manage.py makemigrations plants`
-```python
-You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
-Please select a fix:
-```
-### ✔ Solución
-Depende el caso te conviene hacer alguna de estas opciones: 
-- Provide a default value in your model.
-- Provide a default during the migration process.
-- Enable null values for that field.
-
-
------------------------------------------------------------
-# URLGRAFÍA
-- [Primeros pasos DJANGO](https://medium.com/@devsar)
-- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
-- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
-- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
-- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
-- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
-- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
-- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
-
-## Cheatsheets
-- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
-
------------------------------------------------------------
-#  Configurar EMAIL
-
------------------------------------------------------------
-# ❌ ERRORES
-
-## Modelos
-❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
-
-`python manage.py makemigrations plants`
-```python
-You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
-Please select a fix:
-```
-### ✔ Solución
-Depende el caso te conviene hacer alguna de estas opciones: 
-- Provide a default value in your model.
-- Provide a default during the migration process.
-- Enable null values for that field.
-
-
------------------------------------------------------------
-# URLGRAFÍA
-- [Primeros pasos DJANGO](https://medium.com/@devsar)
-- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
-- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
-- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
-- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
-- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
-- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
-- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
-
-## Cheatsheets
-- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
-
------------------------------------------------------------
 # ✉️ Configurar envío EMAIL
+En este ejemplo se configura un formulario de contacto.
+
 ## GMAIL
-`settings.py`
+### 1. `settings.py` Configurar la cuenta de correo.
 ```python
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER='Correo@gmail.com'
 EMAIL_HOST_PASSWORD='Contraseña'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 ```
+### 2. `models.py` Crear el modelo.
+```python
+from django.db import models
+from django.forms.fields import EmailField
 
+MOTIVOS=[
+	('REC','Recomendación'),
+	('PET','Petición'),
+	('ERR','Error'),
+]
+class Contact(models.Model):
+	name=models.CharField(max_length=200, null=True, blank=True)
+	email=models.EmailField(max_length=254, null=False, blank=False)
+	motivo=models.CharField(max_length=3,choices=MOTIVOS)
+	msg=models.TextField(null=False, blank=False)
+```
+### 3. `forms.py` Formulario basado en el modelo.
+```python
+from .models import *
+
+class ContactFormWEB(forms.Form):
+  name=forms.CharField(max_length=200, required=False)
+  email=forms.EmailField()
+  motivo=forms.CharField(
+    max_length=3,
+    widget=forms.Select(choices=MOTIVOS)
+  )
+  mensaje=forms.CharField(widget=forms.Textarea)
+```
+### 4. `views.py` Aquí valida, envía email y guarda en la BD.
+```python
+def contact(request):
+	context={"title_":"CONTACT"}
+	form=ContactFormWEB(request.POST or None)
+	context.update({'form_':form})
+	if form.is_valid():
+		form_data=form.cleaned_data
+		Contact.objects.create(
+			name=form_data.get('name'),
+			email=form_data.get('email'),
+			motivo=form_data.get('motivo'),
+			msg=form_data.get('mensaje'))
+
+		msg="{} ({})\n\n{}".format(
+			form_data.get('name'),
+			form_data.get('email'),
+			form_data.get('mensaje'),
+		)
+		send_mail(
+			"Plantnet 🌿 "+form_data.get('motivo'),					# Asunto
+			msg,																						# Cuerpo del mensaje
+			settings.EMAIL_HOST_USER,												# From
+			[settings.EMAIL_HOST_USER],											# To
+			fail_silently=False
+		)
+
+		context.update({'send_':"✔ Mensaje enviado"})
+		return render(request, "contact.html", context=context)
+	return render(request, "contact.html", context=context)
+```
+### 5. `contact.html` Web html que mostrará el formulario
+```django
+{% extends 'base.html' %}
+{% block title %}{{title_}}{% endblock title %}
+{% block content %}
+
+<h1>Formulario de contacto</h1>
+<h2>{{send_}}</h2>
+<form method="POST">
+{{form_.as_p}}
+{% csrf_token %}
+<input type="submit" value="Enviar"/>
+</form>
+
+{% endblock content %}
+```
+### 6. `url.py`
+```python
+urlpatterns=[
+	url(r'^contact/',						views.contact,				name="contact"),
+]
+```
 -----------------------------------------------------------
 # ❌ ERRORES
 
@@ -665,7 +696,7 @@ You are trying to add a non-nullable field 'nameComun' to plant without a defaul
 Please select a fix:
 ```
 ### ✔ Solución
-Depende el caso te conviene hacer alguna de estas opciones: 
+Depende el caso te conviene hacer alguna de estas opciones:
 - Provide a default value in your model.
 - Provide a default during the migration process.
 - Enable null values for that field.
@@ -681,40 +712,13 @@ Depende el caso te conviene hacer alguna de estas opciones:
 - [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
 - [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
 - [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
+- [DJANGO GMAIL](https://dev.to/abderrahmanemustapha/how-to-send-email-with-django-and-gmail-in-production-the-right-way-24ab)
 
-## Cheatsheets
+# Cheatsheets
+## [DJANGO](https://docs.djangoproject.com/en/3.2/)
 - [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
 - [Cheatsheet for Django Models by Jack Linke](https://jacklinke.com/cheatsheet-for-django-models)ema Configurar EMAIL
 
------------------------------------------------------------
-# ❌ ERRORES
-
-## Modelos
-❌ Tras añadir campos a un modelo y añadirlos a la migración aparece el siguiente error.
-
-`python manage.py makemigrations plants`
-```python
-You are trying to add a non-nullable field 'nameComun' to plant without a default; we can't do that (the database needs something to populate existing rows).
-Please select a fix:
-```
-### ✔ Solución
-Depende el caso te conviene hacer alguna de estas opciones: 
-- Provide a default value in your model.
-- Provide a default during the migration process.
-- Enable null values for that field.
-
-
------------------------------------------------------------
-# URLGRAFÍA
-- [Primeros pasos DJANGO](https://medium.com/@devsar)
-- [Curso DJANGO](https://www.udemy.com/course/curso-practico-django/learn/lecture/16468900?start=165#overview)
-- [Guía rápida](https://www.codewithharry.com/blogpost/django-cheatsheet)
-- [Plantillas](https://www.creative-tim.com/blog/django-templates/django-cheat-sheet-free-samples/)
-- [Resetting Django Migrations](https://www.techiediaries.com/resetting-django-migrations/)
-- [Login & Logout](https://learndjango.com/tutorials/django-login-and-logout-tutorial)
-- [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
-- [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
-
-## Cheatsheets
-- [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
-- [Cheatsheet for Django Models by Jack Linke](https://jacklinke.com/cheatsheet-for-django-models)
+## [TAILWIND](https://tailwindcss.com/docs)
+- [cheatsheet0](https://tailwindcomponents.com/cheatsheet/)
+- [cheatsheet1](https://nerdcave.com/tailwind-cheat-sheet)

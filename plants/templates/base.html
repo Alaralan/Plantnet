@@ -1,5 +1,7 @@
-{% load static  %}
+{% load static %}
+{% load tailwind_tags %}
 <!DOCTYPE html>
+{% comment %} <html lang="es" class="dark"> {% endcomment %}
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
@@ -7,34 +9,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie-edge">
   
+  {% tailwind_css %}
   {% comment %}
   Añadir estilos CSS
   * Esto es un comentario en DJANGO
   {% endcomment %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% endcomment %}
 
 </head>
-<body>
-  <header>
-  <h1>🌱 Plantnet</h1>
+<body class="bg-green-100 dark:bg-green-600 relative h-30">
+
+<header class="bg-green-200 dark:bg-green-700">
+  <h1 class="">🌱 Plantnet</h1>
 
   <!-- MENÚ -->
-  <a href="{% url 'home' %}">Home</a>
-  <a href="{% url 'plants' %}">Catálogo</a>
-  <a href="{% url 'about' %}">About</a>
-  <a href="{% url 'contact' %}">Contacto</a>
-  {% if user.is_authenticated %}
-    <a href="{% url 'profile' %}">Profile</a>
-    <a href="{% url 'logout' %}">Logout</a>
-  {% else %}
-    <a href="{% url 'login' %}">Login</a>
-  {% endif %}
-  </header>
+  <div class="float-right">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'plants' %}">Catálogo</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'contact' %}">Contacto</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile' %}">Profile</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+      <a href="{% url 'login' %}">Login</a>
+    {% endif %}
 
-<!-- SESIÓN -->
-{% if user.is_authenticated %}
-<h2>{{user.username}}</h2>
-{% endif %}
+    <!-- SESIÓN -->
+    {% if user.is_authenticated %}
+    <h2 class="float-right">{{user.username}}</h2>
+    {% endif %}
+  </div>
+
+</header>
 
 <!-- CONTENEDORES -->
 {% block content %}{% endblock content %}

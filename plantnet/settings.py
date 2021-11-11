@@ -28,14 +28,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+## GMAIL
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER='graveyarkeeper@gmail.com'
-EMAIL_HOST_PASSWORD='x79TpZytHhjpMA5'
+EMAIL_HOST_PASSWORD='pagmogttjvdcdejx'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 
-# Application definition
+## TAILWIND
+NPM_BIN_PATH=r"C:\Program Files\nodejs\npm.cmd"
+TAILWIND_APP_NAME='theme'
+INTERNAL_IPS=[
+	"127.0.0.1",
+]
 
+# Application definition
 INSTALLED_APPS = [
 	'django.contrib.admin',
 	'django.contrib.auth',
@@ -43,7 +52,9 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	'plants'
+	'plants',
+	'tailwind',
+	'theme'
 ]
 
 MIDDLEWARE = [
