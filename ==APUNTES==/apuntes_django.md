@@ -367,6 +367,8 @@ Una vez tenemos todo lo anterior configurado podemos acceder al panel de adminis
 #### Crear el usuario superuser
 ```bash
 python manage.py createsuperuser
+# Con el usuario en el comando.
+python manage.py createsuperuser --username admin
 ```
 Introducir el nombre de usuario, correo y contraseña
 
@@ -432,6 +434,8 @@ Una vez terminemos alguno de los dos pasos anteriores podemos continuar.
 ```shell
 python manage.py makemigrations
 python manage.py migrate
+
+python manage.py createsuperuser --username admin
 ```
 #### Nota
 Si hemos borrado la BD tenemos que crear la [contraseña de administrador](#ADMIN-panel) nuevamente.
@@ -541,7 +545,7 @@ python manage.py tailwind start
 #### ✔ Solución
 - [Variable de entorno](https://bertofern.wordpress.com/2019/01/08/solucion-node-js-npm-no-reconocido-como-comando-interno-o-externo/)
 -----------------------------------------------------------
-# TAG
+# 🏷 TAG
 Dentro de nuestros ficheros html podremos introducir **tag** de django.
 Algo similar a `<?php ... ?>`
 
@@ -559,6 +563,7 @@ Devuelve la ruta del fichero indicado, previemante se debe cargar con el tag ant
 
 ## `{% extends 'plantillaBase.html' %}`
 Hereda la plantilla. Se introduce antes de `block` a la hora de definir el contenido.
+_Siempre es la primera etiqueta_
 
 ## `{% block blockName %}{% endblock blockName %}`
 Según donde los usemos, definen o cargan el contenido del bloque.
