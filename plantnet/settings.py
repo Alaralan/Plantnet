@@ -51,11 +51,12 @@ INSTALLED_APPS = [
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
+	'django.contrib.sites',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	# 3º APPS
 	'tailwind',
-	# 'registration',
+	'registration',
 	# MIS APPS
 	'plants',
 	'theme',
@@ -148,3 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AÑADIDO
 LOGOUT_REDIRECT_URL = 'home'
+
+# REGISTRATION # Plantillas de registro,login...
+ACCOUNT_ACTIVATION_DAYS=7
+REGISTRATION_AUTO_LOGIN=True
