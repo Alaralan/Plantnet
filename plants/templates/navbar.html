@@ -1,21 +1,19 @@
+<!-- MENÚ -->
+<div class="flex flex-wrap justify-between items-center">
+  <h1 class="flex-1">🌱 Plantnet</h1>
 
-  <h1 class="">🌱 Plantnet</h1>
-
-  <!-- MENÚ -->
-  <div class="float-right">
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'plants' %}">Catálogo</a>
-    <a href="{% url 'about' %}">About</a>
-    <a href="{% url 'contact' %}">Contacto</a>
-    {% if user.is_authenticated %}
-      <a href="{% url 'profile' %}">Profile</a>
-      <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-      <a href="{% url 'login' %}">Login</a>
-    {% endif %}
-
+  <div class="order-last flex-[100%] mt-4 md:order-none md:flex-auto md:mt-0 text-center">
+    <a href="{% url 'home' %}"      class="px-1 inline-block">Home</a>
+    <a href="{% url 'plants' %}"    class="px-1 inline-block">Catálogo</a>
+    <a href="{% url 'about' %}"     class="px-1 inline-block">About</a>
+    <a href="{% url 'contact' %}"   class="px-1 inline-block">Contacto</a>
+  </div>
+    
     <!-- SESIÓN -->
     {% if user.is_authenticated %}
-    <h2 class="float-right">{{user.username}}</h2>
+      <a href="{% url 'profile' %}" class="flex-1 text-right">&nbsp;{{user.username}}&nbsp;</a>
+      <a href="{% url 'logout' %}"  class="px-1">Logout</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="flex-1 text-right">Login</a>
     {% endif %}
-  </div>
+</div>
