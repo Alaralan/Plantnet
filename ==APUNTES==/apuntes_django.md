@@ -6,6 +6,8 @@
 ██║  ██║██   ██║██╔══██║██║╚██╗██║██║   ██║██║   ██║
 ██████╔╝╚█████╔╝██║  ██║██║ ╚████║╚██████╔╝╚██████╔╝
 ╚═════╝  ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝
+
+Preview markdown (^k + v)
 ```
 # _Guía básica de instalación/configuración de DJANGO_
 
@@ -275,7 +277,9 @@ source env/bin/activate
 :: Ir al directorio
 pipenv shell
 python manager.py runserver
-http://127.0.0.1:8000/
+python .\manage.py tailwind start
+
+# Go to http://127.0.0.1:8000/
 ```
 
 
