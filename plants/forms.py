@@ -25,13 +25,14 @@ class PlantFormAdm(forms.ModelForm):
 
 # WEB FORM ======================================
 class ContactFormWEB(forms.Form):
-  name=forms.CharField(max_length=200, required=False)
-  email=forms.EmailField()
+  name=forms.CharField(max_length=200, required=False, widget=forms.TextInput(attrs={'placeholder':'Nombre'}))
+  
+  email=forms.EmailField(widget=forms.EmailInput(attrs={'placeholder':'Correo electrónico'}))
   motivo=forms.CharField(
     max_length=3,
     widget=forms.Select(choices=MOTIVOS)
   )
-  mensaje=forms.CharField(widget=forms.Textarea)
+  mensaje=forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Mensaje'}))
 class UserForm(forms.Form):
   name=forms.CharField(max_length=200)
   surname=forms.CharField(max_length=200)

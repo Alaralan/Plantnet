@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    @variants responsive {
+        .masonry {
+            column-gap: 1.5em;
+            column-count: 1;
+        }
+        .masonry-sm {
+            column-gap: 1.5em;
+            column-count: 2;
+        }
+        .masonry-md {
+            column-gap: 1.5em;
+            column-count: 3;
+        }
+        .break-inside {
+            break-inside: avoid;
+        }
+
+    }
+}
+/* 
+Clase personalizada
+*/
+@font-face {
+    font-family: myFirstFont;
+    src: url(fonts/Coconutz.ttf);
+}
+.wellcome{
+    text-shadow: 0 0 20px black, 0 0 30px black;
+}
+.coconut{
+    font-family: myFirstFont;
+}
+.my_form *{
+    border-radius: 25px;
+    width:100%;
+}
+body {
+    /* https://convertio.co/png-cur/ */
+    cursor: url("cursor/cursor2.cur"), pointer;
+}
+.detras{
+    z-index: -3;
+}

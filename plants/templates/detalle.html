@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{title_}}{% endblock title %}
+
+{% block content %}
+	{% comment %} <h1 class="flex justify-around flex-wrap items-center">{{title_}}</h1> {% endcomment %}
+
+	<a href="{% url 'plants' %}" class="
+	fixed top-0
+	coconut
+	w-16 md:w-40
+	pr-6 pl-2 md:pl-5
+	text-5xl
+	text-white
+	inline-block bg-green-400 rounded-br-full
+	shadow-2xl
+	"> < </a>
+	<div class="h-screen flex-col">
+		{% for plant in plants_ %}
+			<div class="m-2.5
+				max-w-xl md:max-w-full
+				md:ml-10
+				md:mr-10
+				rounded-3xl
+				md:flex
+				">
+				<div>
+					<figure class="grid mr-1 ml-1 mb-6 md:mr-6
+					rounded-3xl
+					bg-blue-100 p-2 shadow-2xl
+					">
+						<img 
+							name="pImage" 
+							src="{{plant.image.url}}" 
+							class="
+							rounded-t-3xl
+							md:max-w-xs
+							shadow-inner 
+							"
+							alt="{{plant.nameComun}}"
+						/>
+						<figcaption class="
+							text-white 
+							md:max-w-xs
+							p-2 pb-4 pl-5
+							bg-gray-800 bg-opacity-60
+							rounded-b-3xl
+							shadow-inner
+							">
+							<span>{{plant.name}}</span><br>
+							<span class="text-gray-400">{{plant.nameComun}}</span>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="p-4">
+				<div class="rounded-3xl bg-blue-100 p-1 shadow-2xl">
+				<div class="p-4 bg-blue-200 rounded-3xl shadow-inner">
+				{% if plant.riego %}
+					<div>
+							<span class="font-bold">Riego:</span> {{plant.riego}}
+					</div>
+				{% endif %}
+				{% if plant.tierra %}
+						<div>
+						<span class="font-bold">Tipo de tierra:</span> {{plant.tierra}}
+					</div>
+				{% endif %}
+				</div>
+				</div>
+				{% if plant.description %}
+					<div class="mt-5 rounded-3xl bg-blue-100 p-1 shadow-2xl">
+					<div class="bg-indigo-200 p-4 rounded-3xl shadow-inner">
+						<h3 name="pDescription" class="font-bold">Descripción</h3>
+						<p class="text-justify">{{plant.description}}
+					</div>
+					</div>
+				{% endif %}
+				{% if plant.cuidados %}
+					<div class="mt-5 rounded-3xl bg-blue-100 p-1 shadow-2xl">
+					<div class="bg-indigo-300 p-4 rounded-3xl shadow-inner">
+						<h3 name="pCuidados" class="font-bold">Cuidados</h3>
+						<p class="text-justify">{{plant.cuidados}}
+					</div>
+					</div>
+				{% endif %}
+				{% if plant.consejos %}
+					<div class="mt-5 rounded-3xl bg-blue-100 p-1 shadow-2xl">
+					<div class="bg-blue-200 p-4 rounded-3xl shadow-inner">
+						<h3 name="pConsejos" class="font-bold">Consejos</h3>
+						<p class="text-justify">{{plant.consejos}}
+					</div>
+					</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock content %}

@@ -3,52 +3,43 @@
 {% block title %}{{title_}}{% endblock title %}
 
 {% block content %}
-	<h1>{{title_}}</h1>
-	{% comment %} <div> {% endcomment %}
-	<div class="flex justify-around flex-wrap items-center">
+<div class="h-screen flex-col">
+	<div class="flex justify-around flex-wrap items-center
+	masonry sm:masonry-sm md:masonry-md
+	">
 	{% for plant in plants_ %}
-		<div class="my-2.5">
-		{% comment %} <div class="flex justify-between"> {% endcomment %}
-			{% comment %} <hr/> {% endcomment %}
+		<div class="
+		ml-3 mr-3 my-2.5
+		stroke-3 md:stroke-2 col-start-1 col-end-2 row-start-1 row-end-2
+		max-w-xl md:max-w-xs
+		rounded-3xl
+		bg-blue-100 p-1 shadow-2xl
+		delay-50 hover:scale-110 duration-100
+		break-inside
+		">
 			<figure class="grid">
-				<img 
-					name="pImage" 
-					src="{{plant.image.url}}" 
-					class="max-w-xs stroke-3 md:stroke-2 col-start-1 col-end-2 row-start-1 row-end-2"
-					alt="{{plant.nameComun}}"
-				/>
-				{% comment %} NAME {% endcomment %}
-				<figcaption class="col-start-1 col-end-2 row-start-1 row-end-2 self-end 
-						text-white p-2
-						bg-gray-800 bg-opacity-60
-				">
-					{{plant.name}}<br>
-					{{plant.nameComun}}
-				</figcaption>
-				{% comment %} <h2 name="pName">{{plant.name}}</h2> {% endcomment %}
-				{% comment %} <h2 name="pNameComun">{{plant.nameComun}}</h2> {% endcomment %}
+					<a href="{{ plant.name }}"    class="inline-block">
+					<img 
+						name="pImage" 
+						src="{{plant.image.url}}" 
+						class="rounded-t-3xl shadow-inner"
+						alt="{{plant.nameComun}}"
+					/>
+					<figcaption class="col-start-1 col-end-2 row-start-1 row-end-2 self-end 
+							text-white 
+							p-2  pb-4 pl-5
+							bg-gray-500 bg-opacity-60
+							rounded-b-3xl
+							shadow-inner
+							hover:text-green-200
+					">
+						<span class="font-bold">{{plant.name}}</span><br>
+						<span class="text-gray-900">{{plant.nameComun}}</span>
+					</figcaption>
+				</a>
 			</figure>
-			{% comment %} RIEGO Y TIERRA {% endcomment %}
-			{% comment %} <ul>
-				{% if plant.riego %}		<li>Riego: {{plant.riego}}{% endif %}
-				{% if plant.tierra %}		<li>Tipo de tierra: {{plant.tierra}}{% endif %}
-			</ul> {% endcomment %}
-			{% comment %} DESCRIPTION {% endcomment %}
-			{% comment %} {% if plant.description %}
-				<h3 name="pDescription">Descripción</h3>
-				<p>{{plant.description}}
-			{% endif %} {% endcomment %}
-			{% comment %} CUIDADOS {% endcomment %}
-			{% comment %} {% if plant.cuidados %}
-				<h3 name="pCuidados">Cuidados</h3>
-				<p>{{plant.cuidados}}
-			{% endif %} {% endcomment %}
-			{% comment %} CONSEJOS {% endcomment %}
-			{% comment %} {% if plant.consejo%}
-				<h3 name="pConsejos">Consejos</h3>
-				<p>{{plant.consejos}}
-			{% endif %} {% endcomment %}
 		</div>
 	{% endfor %}
 	</div>
+</div>
 {% endblock content %}

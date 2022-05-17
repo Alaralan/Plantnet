@@ -2,12 +2,17 @@
 {% block title %}{{title_}}{% endblock title %}
 {% block content %}
 
-<h1>Formulario de contacto</h1>
-<h2>{{send_}}</h2>
-<form method="POST">
-{{form_.as_p}}
-{% csrf_token %}
-<input type="submit" value="Enviar"/>
-</form>
-
+<h1 class="flex justify-around flex-wrap items-center">{{send_}}</h1>
+<div class="h-screen flex-col">
+  <div class="flex justify-around flex-wrap items-center">
+    <form method="POST" class="my_form md:w-2/3">
+      {% csrf_token %}
+      <div class="mt-4 w-full"><br/>{{form_.name}}</div>
+      <div class="mt-4 w-full"><br/>{{form_.email}}</div>
+      <div class="mt-4 w-full"><br/>{{form_.motivo}}</div>
+      <div class="mt-4 w-full"><br/>{{form_.mensaje}}</div>
+    <input class="mt-10 mb-20 p-2 w-full" type="submit" value="Enviar"/>
+    </form>
+  </div>
+</div>
 {% endblock content %}

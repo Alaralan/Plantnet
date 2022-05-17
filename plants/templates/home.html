@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-	<h1>Bienvenido al PLANETA de las plantas.</h1>
+	<div class="flex flex-col min-h-screen justify-center items-center">
+		<h1 class="wellcome coconut text-6xl text-white inline font-bold text-center">
+			<span>Just one more plant</span><br/>
+			<span>I promise</span>
+		</h1>
+		<img src="{% static "kawaii.png" %}" class="md:w-4/12"/>
+	</div>
 {% endblock content %}

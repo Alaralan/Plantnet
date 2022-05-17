@@ -1,12 +1,13 @@
+{% load static %}
 <!-- MENÚ -->
-<div class="flex flex-wrap justify-between items-center">
+<div class="flex flex-wrap justify-between items-center ">
   <h1 class="flex-1">🌱 Plantnet</h1>
 
-  <div class="order-last flex-[100%] mt-4 md:order-none md:flex-auto md:mt-0 text-center">
-    <a href="{% url 'home' %}"      class="px-1 inline-block">Home</a>
-    <a href="{% url 'plants' %}"    class="px-1 inline-block">Catálogo</a>
-    <a href="{% url 'about' %}"     class="px-1 inline-block">About</a>
-    <a href="{% url 'contact' %}"   class="px-1 inline-block">Contacto</a>
+  <div class="order-last flex-[100%] md:order-none md:flex-auto md:mt-0 text-center">
+    <a  href="{% url 'home' %}"     class="px-4 md:p-3 inline-block delay-50 hover:bg-gray-600 hover:scale-125 hover:rounded-lg md:hover:rounded-b-lg hover:text-white duration-100 {% if request.path == '/'         %} md:scale-125 duration-100 bg-white rounded-lg md:rounded-b-lg {%endif%}">Home</a>
+    <a href="{% url 'plants' %}"    class="px-4 md:p-3 inline-block delay-50 hover:bg-gray-600 hover:scale-125 hover:rounded-lg md:hover:rounded-b-lg hover:text-white duration-100 {% if request.path == '/plants/'  %} md:scale-125 duration-100 bg-white rounded-lg md:rounded-b-lg {%endif%}">Catálogo</a>
+    <a href="{% url 'about' %}"     class="px-4 md:p-3 inline-block delay-50 hover:bg-gray-600 hover:scale-125 hover:rounded-lg md:hover:rounded-b-lg hover:text-white duration-100 {% if request.path == '/about/'   %} md:scale-125 duration-100 bg-white rounded-lg md:rounded-b-lg {%endif%}">About</a>
+    <a href="{% url 'contact' %}"   class="px-4 md:p-3 inline-block delay-50 hover:bg-gray-600 hover:scale-125 hover:rounded-lg md:hover:rounded-b-lg hover:text-white duration-100 {% if request.path == '/contact/' %} md:scale-125 duration-100 bg-white rounded-lg md:rounded-b-lg {%endif%}">Contacto</a>
   </div>
     
     <!-- SESIÓN -->

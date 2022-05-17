@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER='graveyarkeeper@gmail.com'
-EMAIL_HOST_PASSWORD='pagmogttjvdcdejx'
+EMAIL_HOST_PASSWORD='kgiqbvzqralyhkxh'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
 
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	# 3º APPS
 	'tailwind',
+	'crispy_forms',
 	# 'registration',
 	# MIS APPS
 	'plants',

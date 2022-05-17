@@ -5,6 +5,8 @@
  * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
  */
 
+const { backgroundSize } = require('tailwindcss/defaulttheme');
+
 module.exports = {
     /**
      * Stylesheet generation mode.
@@ -49,9 +51,20 @@ module.exports = {
          */
         // '../../**/*.py'
     ],
-    darkMode: "class", // or 'media' or 'class'
+    darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+        },
+        // backgroundImage:{
+        //     'mosaiq':"url('mosaiq.png')"
+        // },
+        // backgroundSize:{
+        //     'auto': 'auto',
+        //     'cover': 'cover',
+        //     'contain': 'contain',
+        //     '25%': '25%',
+        //     '16': '4rem',
+        // }
     },
     variants: {
         extend: {},

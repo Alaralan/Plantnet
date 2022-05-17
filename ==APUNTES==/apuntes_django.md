@@ -18,9 +18,16 @@ Configurar en Visual Studio Code, opcional.
 - [Django](https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django)
 - [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles)
 - [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+- [Tailwind autocompletado](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+## Temas
 - [Monokai Pro](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode)
+- [Cobalt2 Theme for VS Code](https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2)
+
+
 
 ### `^_P` Preferencias
 - **Métodos abreviados de teclado**
@@ -324,7 +331,7 @@ Para manipular la BD crearemos modelos en el fichero `models.py`.
 Modificamos el fichero models.py
 ```python
 class Plant(models.Model):
-	title		=models.CharField(max_length=200)
+	title	=models.CharField(max_length=200)
 	content	=models.TextField()
 ```
 ## makemigrations
@@ -554,7 +561,7 @@ Dentro de nuestros ficheros html podremos introducir **tag** de django.
 Algo similar a `<?php ... ?>`
 
 ## `{% comment %} ... {% endcomment %}`
-Comentario
+Comentarios
 
 ## `{% load static  %}`
 Para cargar los ficheros estáticos (css, img, j, ...)
@@ -603,6 +610,8 @@ En este ejemplo se configura un formulario de contacto.
 
 ## GMAIL
 ### 1. `settings.py` Configurar la cuenta de correo.
+Esta contraseña no es la contraseña de la cuenta. Se debe generar en:
+ <> Gestión de cuenta > Seguridad > Añadir contraseña.
 ```python
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
@@ -722,12 +731,15 @@ Depende el caso te conviene hacer alguna de estas opciones:
 - [Forms0](https://www.webforefront.com/django/formfieldtypesandvalidation.html)
 - [Forms1](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
 - [DJANGO GMAIL](https://dev.to/abderrahmanemustapha/how-to-send-email-with-django-and-gmail-in-production-the-right-way-24ab)
+- [Vista detallada](https://developer.mozilla.org/es/docs/Learn/Server-side/Django/Generic_views)
 
 # Cheatsheets
 ## [DJANGO](https://docs.djangoproject.com/en/3.2/)
 - [Django Models Cheat Sheet by lewiseason](https://cheatography.com/lewiseason/cheat-sheets/django-models/)
-- [Cheatsheet for Django Models by Jack Linke](https://jacklinke.com/cheatsheet-for-django-models)ema Configurar EMAIL
+- [Cheatsheet for Django Models by Jack Linkeema](https://jacklinke.com/cheatsheet-for-django-models)
+- Configurar EMAIL
 
 ## [TAILWIND](https://tailwindcss.com/docs)
 - [cheatsheet0](https://tailwindcomponents.com/cheatsheet/)
 - [cheatsheet1](https://nerdcave.com/tailwind-cheat-sheet)
+- [Tailwind autocompletado](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)

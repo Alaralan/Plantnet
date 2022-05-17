@@ -10,25 +10,57 @@
 	<meta http-equiv="X-UA-Compatible" content="ie-edge">
   
   {% tailwind_css %}
-  {% comment %}
-  Añadir estilos CSS
-  * Esto es un comentario en DJANGO
-  {% endcomment %}
   {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% endcomment %}
 
 </head>
-<body class="bg-green-100 dark:bg-green-600 relative h-30">
+<body class="h-full h-min-75 w-full
+bg-gradient-to-r from-green-200 via-teal-800 to-white
+{% comment %} absolute top-0 {% endcomment %}
+{% comment %} bg-mosaiq bg-repeat {% endcomment %}
+">
 
-<header class="bg-green-200 dark:bg-green-700">
-  {% include "navbar.html" %}
+  {% comment %} <img src="{% static "mosaiq.png" %}" class="
+  w-1/4 -z-10 absolute
+  insert-0
+  "/> {% endcomment %}
+
+<header class="relative
+mb-6
+bg-blue-100
+text-gray-800 hover:text-black
+">
+{% include "navbar.html" %}
 </header>
 
+<img src="{% static "monstera_tr.png" %}" class="
+  w-1/3 md:w-40 -z-10 absolute right-0
+  insert-0
+  detras
+"/>
+<img src="{% static "monstera_bl.png" %}" class="
+  w-1/3 md:w-40
+  absolute left-0 bottom-1/4
+  detras
+"/>
+<img src="{% static "monstera_br.png" %}" class="
+w-1/2 md:w-40
+absolute right-0 -bottom-32 md:-bottom-20
+detras
+"/>
 <!-- CONTENEDORES -->
-{% block content %}{% endblock content %}
+{% block content %}
+{% endblock content %}
 
-<footer class="bg-green-200 dark:bg-green-700">
+
+{% comment %} <footer class="w-full 
+bg-blue-100
+  inset-x-0
+  bottom-0
+  ">
   Pie de página
-</footer>
+</footer> {% endcomment %}
+</div>
+</div>
 
 </body>
 </html>
