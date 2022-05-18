@@ -140,3 +140,4 @@ cython_debug/
 # IGNORAR TAMBIÉN
 IMG/
 plantnet/settings.py
+plantnet/settings-sample.py

@@ -29,7 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-## GMAIL
+## Datos para configurar el correo electrónico
+# · GMAIL
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER='graveyarkeeper@gmail.com'

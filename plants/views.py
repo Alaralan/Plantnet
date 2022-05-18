@@ -50,7 +50,7 @@ def contact(request):
 			form_data.get('email'),
 			form_data.get('mensaje'),
 		)
-		""" 
+		# """ 
 		## (?) Envío de correo deshabilitado, para las pruebas.
 		send_mail(
 			"Plantnet 🌿 "+form_data.get('motivo'),					# Asunto
